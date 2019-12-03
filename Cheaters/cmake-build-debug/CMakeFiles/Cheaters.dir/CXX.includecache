@@ -1,0 +1,24 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+C:/Users/Vineet/Documents/Priebe/Cheaters/main.cpp
+sys/types.h
+-
+dirent.h
+-
+vector
+-
+string
+-
+iostream
+-
+fstream
+-
+string.h
+-
+
