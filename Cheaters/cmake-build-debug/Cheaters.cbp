@@ -80,6 +80,9 @@
 				</MakeCommands>
 			</Target>
 		</Build>
+		<Unit filename="C:/Users/Vineet/Documents/Priebe/Cheaters/HashTable.h">
+			<Option target="Cheaters"/>
+		</Unit>
 		<Unit filename="C:/Users/Vineet/Documents/Priebe/Cheaters/main.cpp">
 			<Option target="Cheaters"/>
 		</Unit>
