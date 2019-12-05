@@ -15,7 +15,7 @@ using namespace std;
 /*function... might want it in some class?*/
 int getdir (string dir, vector<string> &files);
 
-string filter(string line);
+string filter(string line, bool &chunkBreak);
 
 int main(int argc, char* argv[]) {
     //input in order file, n
@@ -39,15 +39,17 @@ int main(int argc, char* argv[]) {
            // char chunk[chunkSize];
             string chunk = "";
             int chunkWords = 0;
+            bool chunkBreak = false;
 
             while(myfile >> line) {
-                chunk += filter(line);
+                chunk += filter(line,chunkBreak);
                 chunkWords += 1;
                 //check if chunk full, if so hash and add index to table
-                if(chunkWords >= n) {
+                if(chunkWords >= n || chunkBreak) {
                     table.hashFunc(i,chunk);
                     chunk = "";
                     chunkWords = 0;
+                    chunkBreak = false;
                 }
             }
 
@@ -170,7 +172,7 @@ int getdir (string dir, vector<string> &files)
     return 0;
 }
 
-string filter(string line)
+string filter(string line, bool &chunkBreak)
 {
     line.c_str();
     string word;
@@ -183,6 +185,8 @@ string filter(string line)
         } else if(line[j] == '<') {//filter <br, words:, </br, possible bibliography filter
             if(line[j+1] != '\0' && (line[j+1] == 'b' || line[j+1] == '/'))
                 j = j + 2;
+        } else if(line[j] == '.') {
+            chunkBreak = true;
         }
 
     }
