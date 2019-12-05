@@ -36,10 +36,10 @@ public:
             i++;
         }
 
-        cout << chunk << endl;
+
         if(hashNum < 0)
             hashNum = hashNum * -1;
-        cout << hashNum << endl;
+
         //place index into array of vectors
         if(hashTable[hashNum % size].empty())
             hashTable[hashNum % size].push_back(index);
